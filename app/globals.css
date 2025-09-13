@@ -1,0 +1,241 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Viking-themed background with animated swords */
+.viking-background {
+  position: relative;
+  background: linear-gradient(135deg, 
+    #1a1a2e 0%, 
+    #16213e 25%, 
+    #0f3460 50%, 
+    #533483 75%, 
+    #e94560 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  overflow: hidden;
+}
+
+.viking-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Individual sword emojis scattered across the background */
+.viking-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(220, 38, 38, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+  animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+/* Scattered sword emojis */
+.viking-background {
+  position: relative;
+}
+
+.viking-background .sword-emoji {
+  position: absolute;
+  font-size: 1.8rem;
+  color: rgba(255, 215, 0, 0.35);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.viking-background .sword-emoji:nth-child(1) { top: 10%; left: 5%; }
+.viking-background .sword-emoji:nth-child(2) { top: 20%; left: 15%; }
+.viking-background .sword-emoji:nth-child(3) { top: 30%; left: 8%; }
+.viking-background .sword-emoji:nth-child(4) { top: 15%; left: 25%; }
+.viking-background .sword-emoji:nth-child(5) { top: 25%; left: 35%; }
+.viking-background .sword-emoji:nth-child(6) { top: 35%; left: 20%; }
+.viking-background .sword-emoji:nth-child(7) { top: 45%; left: 10%; }
+.viking-background .sword-emoji:nth-child(8) { top: 55%; left: 30%; }
+.viking-background .sword-emoji:nth-child(9) { top: 65%; left: 15%; }
+.viking-background .sword-emoji:nth-child(10) { top: 75%; left: 25%; }
+.viking-background .sword-emoji:nth-child(11) { top: 85%; left: 5%; }
+.viking-background .sword-emoji:nth-child(12) { top: 12%; left: 45%; }
+.viking-background .sword-emoji:nth-child(13) { top: 22%; left: 55%; }
+.viking-background .sword-emoji:nth-child(14) { top: 32%; left: 65%; }
+.viking-background .sword-emoji:nth-child(15) { top: 42%; left: 50%; }
+.viking-background .sword-emoji:nth-child(16) { top: 52%; left: 70%; }
+.viking-background .sword-emoji:nth-child(17) { top: 62%; left: 45%; }
+.viking-background .sword-emoji:nth-child(18) { top: 72%; left: 60%; }
+.viking-background .sword-emoji:nth-child(19) { top: 82%; left: 40%; }
+.viking-background .sword-emoji:nth-child(20) { top: 92%; left: 55%; }
+.viking-background .sword-emoji:nth-child(21) { top: 8%; left: 75%; }
+.viking-background .sword-emoji:nth-child(22) { top: 18%; left: 85%; }
+.viking-background .sword-emoji:nth-child(23) { top: 28%; left: 80%; }
+.viking-background .sword-emoji:nth-child(24) { top: 38%; left: 90%; }
+.viking-background .sword-emoji:nth-child(25) { top: 48%; left: 75%; }
+.viking-background .sword-emoji:nth-child(26) { top: 58%; left: 85%; }
+.viking-background .sword-emoji:nth-child(27) { top: 68%; left: 80%; }
+.viking-background .sword-emoji:nth-child(28) { top: 78%; left: 90%; }
+.viking-background .sword-emoji:nth-child(29) { top: 88%; left: 75%; }
+.viking-background .sword-emoji:nth-child(30) { top: 98%; left: 85%; }
+.viking-background .sword-emoji:nth-child(31) { top: 5%; left: 50%; }
+.viking-background .sword-emoji:nth-child(32) { top: 95%; left: 50%; }
+.viking-background .sword-emoji:nth-child(33) { top: 50%; left: 5%; }
+.viking-background .sword-emoji:nth-child(34) { top: 50%; left: 95%; }
+.viking-background .sword-emoji:nth-child(35) { top: 25%; left: 50%; }
+.viking-background .sword-emoji:nth-child(36) { top: 75%; left: 50%; }
+.viking-background .sword-emoji:nth-child(37) { top: 50%; left: 25%; }
+.viking-background .sword-emoji:nth-child(38) { top: 50%; left: 75%; }
+.viking-background .sword-emoji:nth-child(39) { top: 40%; left: 40%; }
+.viking-background .sword-emoji:nth-child(40) { top: 60%; left: 60%; }
+
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes swordFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(5deg); }
+  50% { transform: translateY(0px) rotate(0deg); }
+  75% { transform: translateY(10px) rotate(-5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Enhanced Viking-themed colors */
+:root {
+  --background: oklch(0.15 0.05 250); /* Deep navy blue */
+  --foreground: oklch(0.95 0.02 85); /* Bright gold */
+  --card: oklch(0.2 0.08 250); /* Darker navy with slight purple */
+  --card-foreground: oklch(0.9 0.05 85);
+  --popover: oklch(0.18 0.06 250);
+  --popover-foreground: oklch(0.9 0.05 85);
+  --primary: oklch(0.7 0.2 85); /* Bright gold */
+  --primary-foreground: oklch(0.1 0.05 250);
+  --secondary: oklch(0.6 0.25 25); /* Deep red */
+  --secondary-foreground: oklch(0.95 0.02 85);
+  --muted: oklch(0.25 0.08 250);
+  --muted-foreground: oklch(0.7 0.05 85);
+  --accent: oklch(0.65 0.25 25); /* Bright red accent */
+  --accent-foreground: oklch(0.95 0.02 85);
+  --destructive: oklch(0.6 0.25 25);
+  --destructive-foreground: oklch(0.95 0.02 85);
+  --border: oklch(0.4 0.1 85);
+  --input: oklch(0.2 0.08 250);
+  --ring: oklch(0.7 0.2 85);
+  --chart-1: oklch(0.6 0.2 140); /* Emerald green */
+  --chart-2: oklch(0.7 0.2 85); /* Gold */
+  --chart-3: oklch(0.6 0.25 25); /* Red */
+  --chart-4: oklch(0.7 0.2 85); /* Primary gold */
+  --chart-5: oklch(0.3 0.1 250); /* Dark navy */
+  --radius: 0.75rem;
+  --sidebar: oklch(0.15 0.05 250);
+  --sidebar-foreground: oklch(0.9 0.05 85);
+  --sidebar-primary: oklch(0.7 0.2 85);
+  --sidebar-primary-foreground: oklch(0.1 0.05 250);
+  --sidebar-accent: oklch(0.6 0.25 25);
+  --sidebar-accent-foreground: oklch(0.95 0.02 85);
+  --sidebar-border: oklch(0.4 0.1 85);
+  --sidebar-ring: oklch(0.7 0.2 85);
+}
+
+.dark {
+  --background: oklch(0.08 0.05 250); /* Even darker navy */
+  --foreground: oklch(0.95 0.02 85);
+  --card: oklch(0.12 0.08 250);
+  --card-foreground: oklch(0.9 0.05 85);
+  --popover: oklch(0.1 0.06 250);
+  --popover-foreground: oklch(0.9 0.05 85);
+  --primary: oklch(0.75 0.2 85);
+  --primary-foreground: oklch(0.08 0.05 250);
+  --secondary: oklch(0.65 0.25 25);
+  --secondary-foreground: oklch(0.95 0.02 85);
+  --muted: oklch(0.18 0.08 250);
+  --muted-foreground: oklch(0.7 0.05 85);
+  --accent: oklch(0.7 0.25 25);
+  --accent-foreground: oklch(0.95 0.02 85);
+  --destructive: oklch(0.65 0.25 25);
+  --destructive-foreground: oklch(0.95 0.02 85);
+  --border: oklch(0.3 0.1 85);
+  --input: oklch(0.15 0.08 250);
+  --ring: oklch(0.75 0.2 85);
+  --chart-1: oklch(0.65 0.2 140);
+  --chart-2: oklch(0.75 0.2 85);
+  --chart-3: oklch(0.65 0.25 25);
+  --chart-4: oklch(0.75 0.2 85);
+  --chart-5: oklch(0.2 0.1 250);
+  --sidebar: oklch(0.08 0.05 250);
+  --sidebar-foreground: oklch(0.9 0.05 85);
+  --sidebar-primary: oklch(0.75 0.2 85);
+  --sidebar-primary-foreground: oklch(0.08 0.05 250);
+  --sidebar-accent: oklch(0.65 0.25 25);
+  --sidebar-accent-foreground: oklch(0.95 0.02 85);
+  --sidebar-border: oklch(0.3 0.1 85);
+  --sidebar-ring: oklch(0.75 0.2 85);
+}
